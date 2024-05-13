@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo ex</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+    crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form class="form-signup" action="#">
+                <h1>Регистрация</h1>
+                <span>или используйте свой E-mail для регистрации</span>
+                <input type="text" placeholder="Name" name="name" />
+                <input type="text" placeholder="Login" name="login" />
+                <input type="tel" placeholder="Phone" name="phone" />
+                <input type="password" placeholder="Password" name="password" />
+                <button>Зарегистрироваться</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form class="form-sigin" action="#">
+                <h1>Авторизация</h1>
+                <span>или используйте свой аккаунт</span>
+                <input type="text" placeholder="Login" name="login" />
+                <input type="password" placeholder="Password" name="password" />
+                <button>Вход</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Добро пожаловать!</h1>
+                    <p>Чтобы оставаться на связи с нами, пожалуйста, войдите в систему с вашей личной информацией</p>
+                    <button class="ghost" id="signIn">Авторизация</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Привет, Друг!</h1>
+                    <p>Введите свои личные данные и начните путешествие вместе с нами</p>
+                    <button class="ghost" id="signUp">Регистрация</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>

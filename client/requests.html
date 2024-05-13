@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заявки</title>
+</head>
+
+<body>
+    <h1>Заявки</h1>
+    <button class="add">add</button>
+    <div class="wrapper">
+        <div class="card">
+            <h2 class="name">Bogdan</h2>
+            <span class="date">12.09.12</span>
+            <span class="status">Принята</span>
+            <button>Записаться</button>
+        </div>
+    </div>
+    <script>
+        const container = document.querySelector('.wrapper');
+        const addBtn = document.querySelector('.add');
+
+        fetch("http://localhost:3001/").then(res => res.json()).then((data) => {
+            data.map((item) => {
+                const cardElem = document.createElement('div');
+                cardElem.classList.add("card");
+                cardElem.innerHTML = `
+                    <h2 class="name">${item.master_name}</h2>
+                    <span class="date">${item.time}</span>
+                    <span class="status">${item.status}</span>
+                `;
+
+                container.appendChild(cardElem);
+            })
+        })
+
+        addBtn.addEventListener('click', async (evt) => {
+            evt.preventDefault();
+
+
+            const response = await fetch('http://localhost:3001/add', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    master_name: 'Test hardcode',
+                    time: '16.01'
+                })
+            });
+
+            const data = await response.json();
+            if (data.error) {
+                alert(data.error);
+            } else {
+                alert('ebat');
+            }
+        });
+    </script>
+</body>
+
+</html>
