@@ -39,17 +39,16 @@ signInForm.addEventListener('submit', async (evt) => {
 signUpForm.addEventListener('submit', async (evt) => {
     evt.preventDefault();
 
-    const login = evt.target.login.value;
+    const username = evt.target.login.value;
     const password = evt.target.password.value;
     const name = evt.target.name.value;
-    console.log(login, password, name);
 
-    const response = await fetch(baseUrl + '/signup', {
+    const response = await fetch(baseUrl + '/auth', {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({login, password})
+        body: JSON.stringify({username, password})
     });
 
     const data = await response.json();
